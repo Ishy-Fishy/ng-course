@@ -1,13 +1,16 @@
 'use strict';
 
 angular.module('myApp')
-  .directive('list', listDirective);
+  .directive('list', ['TodoService', function (TodoService) {
+    return{
+      restrict: 'E',
+      link: function (scope, elem, attr) {
+        scope.items = TodoService.ListItems;
+      },
+      scope: {
+        items: '='
+      },
 
-function listDirective() {
-  return {
-    templateUrl: 'templates/list.html',
-    scope: {
-      items: '='
-    }
-  }
-}
+      templateUrl: 'templates/list.html'
+      }
+  }]);
