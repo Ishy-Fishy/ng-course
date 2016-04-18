@@ -1,4 +1,4 @@
 <div class="list-item">
-    <h3>{{title}}</h3>
+    <h4>{{$parent.$index+1}}</h4><h3>{{title}}</h3><button ng-click="delItem($parent.$index);">Delete</button>
     <p>{{description}}</p>
 </div>

@@ -11,16 +11,22 @@ angular.module('myApp')
             {
                 title: 'Item #2',
                 description: 'Item description #2'
+            },
+            {
+                title: 'test',
+                description: 'test'
             }
         ];
-        
         return{
             AddItem : function(params) {
-                itemArr.push(params);//add item logic here
+                var copy = angular.copy(params);
+                itemArr.push(copy);
+                //add item logic here
             },
             ListItems : itemArr,
-            DelItem : function () {
-                return // list delete logic
+            DelItem : function (params) {
+                itemArr.splice(params , 1);
+                // list delete logic
             },
         }
     })
