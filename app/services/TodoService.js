@@ -1,8 +1,7 @@
 'use strict';
 
 angular.module('myApp')
-    .factory('TodoService', function(){
-
+    .factory('TodoService', function($window){
         var itemArr = [
             {
                 title: 'Item #1',
@@ -13,20 +12,27 @@ angular.module('myApp')
                 description: 'Item description #2'
             },
             {
-                title: 'test',
-                description: 'test'
+                title: 'foo',
+                description: 'bar'
             }
         ];
         return{
             AddItem : function(params) {
-                var copy = angular.copy(params);
-                itemArr.push(copy);
+                if (params.title.length > 2) {
+                    var copy = angular.copy(params);
+                    itemArr.unshift(copy);
+                }
+                else {
+                    $window.alert("Description too short");
+                }
                 //add item logic here
             },
-            ListItems : itemArr,
+            ListItems : function () {
+                return itemArr;
+            },
             DelItem : function (params) {
                 itemArr.splice(params , 1);
                 // list delete logic
-            },
+            }
         }
     })

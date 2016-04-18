@@ -5,7 +5,8 @@ angular.module('myApp')
         return {
             restrict: 'E',
             link: function ($scope, elem, attr) {
-                $scope.items = TodoService.ListItems;
+                $scope.items = TodoService.ListItems();
+                $scope.delItem = TodoService.DelItem;
             },
             scope: {
                 items: '='

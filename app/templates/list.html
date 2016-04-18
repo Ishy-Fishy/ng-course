@@ -1,7 +1,8 @@
 <div class="list">
     <ul>
-        <li ng-repeat="item in items">
+        <li ng-repeat="item in items | filter:$parent.keyword">
             <list-item title="item.title" description="item.description"></list-item>
+            <button ng-click="delItem(items.indexOf(item));">Delete</button>
         </li>
     </ul>
 </div>

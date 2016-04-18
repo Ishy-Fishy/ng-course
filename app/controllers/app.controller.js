@@ -7,5 +7,7 @@ function AppController($scope, TodoService) {
 
   $scope.data = { };
 
+  $scope.keyword = "";
+
   $scope.addItem = TodoService.AddItem;
 }

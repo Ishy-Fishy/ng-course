@@ -17,6 +17,7 @@
     <input type="text" placeholder="title" ng-model="data.title"/>
     <input type="text" placeholder="description" ng-model="data.description" />
     <button ng-click="addItem(data);">Add</button>
+    <input type="text" placeholder="search" ng-model="keyword" /><search-count></search-count>
   </form>
 
   <hr />
@@ -28,6 +29,7 @@
   <script src="app.js"></script>
   <script src="services/TodoService.js"></script>
   <script src="controllers/app.controller.js"></script>
+  <script src="directives/search-count.js"></script>
   <script src="directives/list.js"></script>
   <script src="directives/list-item.js"></script>
 </body>
